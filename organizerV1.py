@@ -6,7 +6,7 @@ from datetime import datetime
 
 def organizar_arquivos():
     # Set the path to the desktop
-    desktop_path = os.path.expanduser("~\Desktop\Teste")
+    desktop_path = os.path.expanduser("~\Documenos\testpaste")
 
     # Create the folders for each year up to the current year
     current_year = datetime.now().year
