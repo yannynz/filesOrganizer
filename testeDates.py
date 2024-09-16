@@ -12,7 +12,7 @@ modification_dates = [time.strftime("%Y%m%d%H%M%S", time.localtime(time.time() -
 
 # Create up to 10 files with the specified modification dates
 for i, date in enumerate(modification_dates):
-    if i >= 5:
+    if i >= 1:
         break
     filename = base_filename.format(date)
     file_path = os.path.join(desktop_path, filename)

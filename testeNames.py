@@ -1,6 +1,7 @@
 import os
 import time
 import random
+import string
 
 # Define the path to the directory
 directory_path = os.path.expanduser("~/Documentos/testPaste/")
@@ -8,23 +9,26 @@ directory_path = os.path.expanduser("~/Documentos/testPaste/")
 # Define the base filename structure
 base_filename = "NR{nr}{cliente}{prioridade}.pdf"
 
-# List of client names
-clientes = ["macaco", "aveztruz", "boi", "vaca", "cavalo"]
-
 # List of priorities
 prioridades = ["Vermelho", "Amarelo", "Azul", "Verde"]
 
 # Generate a list of modification dates from 2015 to 2023
 modification_dates = [time.strftime("%Y%m%d%H%M%S", time.localtime(time.time() - (365*24*60*60)*(2023-year))) for year in range(2015, 2024)]
+    
+# Function to generate a random string of letters
+def random_string(length):
+    letters = string.ascii_lowercase
+    return ''.join(random.choice(letters) for i in range(length))
 
 # Create up to 10 files with the specified modification dates
 for i, date in enumerate(modification_dates):
-    if i >= 10:
+    if i >= 1:
         break
     
     # Generate random nr and select a random client and priority
     nr = random.randint(100000, 999999)
-    cliente = random.choice(clientes)
+    cliente_length = random.randint(5, 10)  # Random length between 5 and 10
+    cliente = random_string(cliente_length)
     prioridade = random.choice(prioridades)
     
     # Create the filename with the required pattern
